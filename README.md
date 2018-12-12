@@ -3,6 +3,13 @@
 
 ## 安装谷歌TronPay钱包
 
+```javascript
+// chrome网上应用店
+https://chrome.google.com/webstore/detail/tronpay/gjdneabihbmcpobmfhcnljaojmgoihfk
+
+// github
+https://github.com/tronpay/TronPay-Extension
+```
 
 ## 全局声明
 
