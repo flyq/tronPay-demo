@@ -35,7 +35,7 @@ const tronApi = {
   contract: false,
   setTronWeb (tronWeb) {
     this.tronWeb = tronWeb;
-    this.contract = tronWeb.contract(contracts.abi, '415bd21658fa76a733f23d798dc394081d93ded24d')
+    this.contract = tronWeb.contract(contracts.abi, '41a007d96d0a1f61d262c54337064448a9d1e494d6')
   }
 }
 
@@ -46,7 +46,7 @@ const call = document.querySelector('#call')
 
 send.addEventListener('click', () => {
   send.innerHTML = '发送中....'
-  tronApi.contract.init(1,10,1000000000).send({
+  tronApi.contract.init(1,40).send({
     shouldPollResponse: true,
     callValue: 0,
   }).then(res => {
@@ -59,7 +59,7 @@ send.addEventListener('click', () => {
 })
 
 call.addEventListener('click', () => {
-  tronApi.contract.totalSupply().call().then(resp => {
+  tronApi.contract.getIndexOfGlobal().call().then(resp => {
     console.log(resp, parseInt(resp._hex, 16), 'toNumber')
  //   console.log(resp)
   })

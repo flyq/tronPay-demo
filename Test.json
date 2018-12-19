@@ -713,10 +713,6 @@ const contracts = {
         {
           "name": "r",
           "type": "uint256"
-        },
-        {
-          "name": "price",
-          "type": "uint256"
         }
       ],
       "name": "init",
@@ -726,60 +722,30 @@ const contracts = {
       "type": "function"
     },
     {
-      "constant": true,
+      "constant": false,
       "inputs": [
         {
-          "name": "price",
+          "name": "l",
           "type": "uint256"
-        }
-      ],
-      "name": "calculateDevCut",
-      "outputs": [
+        },
         {
-          "name": "_devCut",
+          "name": "r",
           "type": "uint256"
         }
       ],
+      "name": "newGlobalPrice",
+      "outputs": [],
       "payable": false,
-      "stateMutability": "view",
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "_price",
-          "type": "uint256"
-        }
-      ],
-      "name": "calculateNextPrice",
-      "outputs": [
-        {
-          "name": "_nextPrice",
-          "type": "uint256"
-        }
-      ],
+      "constant": false,
+      "inputs": [],
+      "name": "newGlobalGlobal",
+      "outputs": [],
       "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "tokenID",
-          "type": "uint256"
-        }
-      ],
-      "name": "nextPriceOf",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -794,6 +760,15 @@ const contracts = {
       "outputs": [],
       "payable": true,
       "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "awardPool",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -887,6 +862,82 @@ const contracts = {
           "type": "uint256"
         }
       ],
+      "name": "getGlobalBegin",
+      "outputs": [
+        {
+          "name": "_begin",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getGlobalEnd",
+      "outputs": [
+        {
+          "name": "_end",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getGlobalLastOne",
+      "outputs": [
+        {
+          "name": "_lastone",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getGlobalPool",
+      "outputs": [
+        {
+          "name": "_pool",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
       "name": "getGlobal",
       "outputs": [
         {
@@ -900,6 +951,10 @@ const contracts = {
         {
           "name": "_lastone",
           "type": "address"
+        },
+        {
+          "name": "_pool",
+          "type": "uint256"
         }
       ],
       "payable": false,
@@ -922,6 +977,67 @@ const contracts = {
         {
           "name": "_lastone",
           "type": "address"
+        },
+        {
+          "name": "_pool",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "calculateDevCut",
+      "outputs": [
+        {
+          "name": "_devCut",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_price",
+          "type": "uint256"
+        }
+      ],
+      "name": "calculateNextPrice",
+      "outputs": [
+        {
+          "name": "_nextPrice",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "tokenID",
+          "type": "uint256"
+        }
+      ],
+      "name": "nextPriceOf",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
         }
       ],
       "payable": false,
