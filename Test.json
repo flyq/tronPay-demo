@@ -723,6 +723,15 @@ const contracts = {
     },
     {
       "constant": false,
+      "inputs": [],
+      "name": "initGlobal",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
       "inputs": [
         {
           "name": "l",
@@ -938,6 +947,25 @@ const contracts = {
           "type": "uint256"
         }
       ],
+      "name": "getGlobalDevCut",
+      "outputs": [
+        {
+          "name": "_devCut",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
       "name": "getGlobal",
       "outputs": [
         {
@@ -954,6 +982,10 @@ const contracts = {
         },
         {
           "name": "_pool",
+          "type": "uint256"
+        },
+        {
+          "name": "_devCut",
           "type": "uint256"
         }
       ],
@@ -980,6 +1012,10 @@ const contracts = {
         },
         {
           "name": "_pool",
+          "type": "uint256"
+        },
+        {
+          "name": "_devCut",
           "type": "uint256"
         }
       ],
