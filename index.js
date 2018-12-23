@@ -46,9 +46,9 @@ const call = document.querySelector('#call')
 
 send.addEventListener('click', () => {
   send.innerHTML = '发送中....'
-  tronApi.contract.init(201,220).send({
+  tronApi.contract.buy(36).send({
     shouldPollResponse: true,
-    callValue: 0,
+    callValue: 30000000,
   }).then(res => {
     send.innerHTML = '已发送'
     console.log('success', res)
@@ -59,7 +59,7 @@ send.addEventListener('click', () => {
 })
 
 call.addEventListener('click', () => {
-  tronApi.contract.allOf(48).call().then(resp => {
+  tronApi.contract.allOf(135).call().then(resp => {
     console.log(resp, parseInt(resp._hex, 16), 'toNumber')
  //   console.log(resp)
   })
