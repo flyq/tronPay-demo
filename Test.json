@@ -5,7 +5,7 @@ const contracts = {
       "constant": true,
       "inputs": [
         {
-          "name": "interfaceId",
+          "name": "_interfaceID",
           "type": "bytes4"
         }
       ],
@@ -14,6 +14,57 @@ const contracts = {
         {
           "name": "",
           "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "cfoAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "name": "_preferredTransport",
+          "type": "string"
+        }
+      ],
+      "name": "tokenMetadata",
+      "outputs": [
+        {
+          "name": "infoUrl",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "promoCreatedCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
         }
       ],
       "payable": false,
@@ -35,14 +86,27 @@ const contracts = {
       "type": "function"
     },
     {
-      "constant": true,
+      "constant": false,
       "inputs": [
         {
-          "name": "tokenId",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_tokenId",
           "type": "uint256"
         }
       ],
-      "name": "getApproved",
+      "name": "approve",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "ceoAddress",
       "outputs": [
         {
           "name": "",
@@ -54,50 +118,29 @@ const contracts = {
       "type": "function"
     },
     {
-      "constant": false,
-      "inputs": [
+      "constant": true,
+      "inputs": [],
+      "name": "GEN0_STARTING_PRICE",
+      "outputs": [
         {
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "name": "tokenId",
+          "name": "",
           "type": "uint256"
         }
       ],
-      "name": "approve",
-      "outputs": [],
       "payable": false,
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "constant": false,
       "inputs": [
         {
-          "name": "",
+          "name": "_address",
           "type": "address"
-        },
-        {
-          "name": "",
-          "type": "address"
-        },
-        {
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "name": "",
-          "type": "bytes"
         }
       ],
-      "name": "onERC721Received",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bytes4"
-        }
-      ],
+      "name": "setSiringAuctionAddress",
+      "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
@@ -117,40 +160,9 @@ const contracts = {
       "type": "function"
     },
     {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "name": "tokenId",
-          "type": "uint256"
-        }
-      ],
-      "name": "transferFrom",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "constant": true,
-      "inputs": [
-        {
-          "name": "owner",
-          "type": "address"
-        },
-        {
-          "name": "index",
-          "type": "uint256"
-        }
-      ],
-      "name": "tokenOfOwnerByIndex",
+      "inputs": [],
+      "name": "pregnantKitties",
       "outputs": [
         {
           "name": "",
@@ -162,9 +174,69 @@ const contracts = {
       "type": "function"
     },
     {
-      "constant": false,
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_kittyId",
+          "type": "uint256"
+        }
+      ],
+      "name": "isPregnant",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
       "inputs": [],
-      "name": "unpause",
+      "name": "GEN0_AUCTION_DURATION",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "siringAuction",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
@@ -174,19 +246,65 @@ const contracts = {
       "constant": false,
       "inputs": [
         {
-          "name": "from",
+          "name": "_address",
           "type": "address"
+        }
+      ],
+      "name": "setGeneScienceAddress",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_newCEO",
+          "type": "address"
+        }
+      ],
+      "name": "setCEO",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_newCOO",
+          "type": "address"
+        }
+      ],
+      "name": "setCOO",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_kittyId",
+          "type": "uint256"
         },
         {
-          "name": "to",
-          "type": "address"
+          "name": "_startingPrice",
+          "type": "uint256"
         },
         {
-          "name": "tokenId",
+          "name": "_endingPrice",
+          "type": "uint256"
+        },
+        {
+          "name": "_duration",
           "type": "uint256"
         }
       ],
-      "name": "safeTransferFrom",
+      "name": "createSaleAuction",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
@@ -196,11 +314,34 @@ const contracts = {
       "constant": true,
       "inputs": [
         {
-          "name": "account",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "sireAllowedToAddress",
+      "outputs": [
+        {
+          "name": "",
           "type": "address"
         }
       ],
-      "name": "isPauser",
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_matronId",
+          "type": "uint256"
+        },
+        {
+          "name": "_sireId",
+          "type": "uint256"
+        }
+      ],
+      "name": "canBreedWith",
       "outputs": [
         {
           "name": "",
@@ -215,19 +356,123 @@ const contracts = {
       "constant": true,
       "inputs": [
         {
-          "name": "index",
-          "type": "uint256"
-        }
-      ],
-      "name": "tokenByIndex",
-      "outputs": [
-        {
           "name": "",
           "type": "uint256"
         }
       ],
+      "name": "kittyIndexToApproved",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
       "payable": false,
       "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_kittyId",
+          "type": "uint256"
+        },
+        {
+          "name": "_startingPrice",
+          "type": "uint256"
+        },
+        {
+          "name": "_endingPrice",
+          "type": "uint256"
+        },
+        {
+          "name": "_duration",
+          "type": "uint256"
+        }
+      ],
+      "name": "createSiringAuction",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "val",
+          "type": "uint256"
+        }
+      ],
+      "name": "setAutoBirthFee",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_addr",
+          "type": "address"
+        },
+        {
+          "name": "_sireId",
+          "type": "uint256"
+        }
+      ],
+      "name": "approveSiring",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_newCFO",
+          "type": "address"
+        }
+      ],
+      "name": "setCFO",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_genes",
+          "type": "uint256"
+        },
+        {
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "createPromoKitty",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "secs",
+          "type": "uint256"
+        }
+      ],
+      "name": "setSecondsPerBlock",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -248,11 +493,39 @@ const contracts = {
       "constant": true,
       "inputs": [
         {
-          "name": "tokenId",
+          "name": "_tokenId",
           "type": "uint256"
         }
       ],
       "name": "ownerOf",
+      "outputs": [
+        {
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "GEN0_CREATION_LIMIT",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "newContractAddress",
       "outputs": [
         {
           "name": "",
@@ -265,8 +538,13 @@ const contracts = {
     },
     {
       "constant": false,
-      "inputs": [],
-      "name": "renouncePauser",
+      "inputs": [
+        {
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "setSaleAuctionAddress",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
@@ -276,11 +554,25 @@ const contracts = {
       "constant": true,
       "inputs": [
         {
-          "name": "owner",
+          "name": "_owner",
           "type": "address"
         }
       ],
       "name": "balanceOf",
+      "outputs": [
+        {
+          "name": "count",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "secondsPerBlock",
       "outputs": [
         {
           "name": "",
@@ -293,14 +585,47 @@ const contracts = {
     },
     {
       "constant": false,
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
       "inputs": [
         {
-          "name": "account",
+          "name": "_owner",
           "type": "address"
         }
       ],
-      "name": "addPauser",
-      "outputs": [],
+      "name": "tokensOfOwner",
+      "outputs": [
+        {
+          "name": "ownerTokens",
+          "type": "uint256[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_matronId",
+          "type": "uint256"
+        }
+      ],
+      "name": "giveBirth",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
@@ -308,7 +633,7 @@ const contracts = {
     {
       "constant": false,
       "inputs": [],
-      "name": "pause",
+      "name": "withdrawAuctionBalances",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
@@ -329,59 +654,97 @@ const contracts = {
       "type": "function"
     },
     {
-      "constant": false,
+      "constant": true,
       "inputs": [
         {
-          "name": "account",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "cooldowns",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "kittyIndexToOwner",
+      "outputs": [
+        {
+          "name": "",
           "type": "address"
         }
       ],
-      "name": "addMinter",
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "transfer",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
-      "constant": false,
+      "constant": true,
       "inputs": [],
-      "name": "renounceMinter",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
+      "name": "cooAddress",
+      "outputs": [
         {
-          "name": "to",
+          "name": "",
           "type": "address"
-        },
-        {
-          "name": "approved",
-          "type": "bool"
         }
       ],
-      "name": "setApprovalForAll",
-      "outputs": [],
       "payable": false,
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "constant": true,
-      "inputs": [
-        {
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "isMinter",
+      "inputs": [],
+      "name": "autoBirthFee",
       "outputs": [
         {
           "name": "",
-          "type": "bool"
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "erc721Metadata",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
         }
       ],
       "payable": false,
@@ -392,23 +755,11 @@ const contracts = {
       "constant": false,
       "inputs": [
         {
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "name": "tokenId",
+          "name": "_genes",
           "type": "uint256"
-        },
-        {
-          "name": "_data",
-          "type": "bytes"
         }
       ],
-      "name": "safeTransferFrom",
+      "name": "createGen0Auction",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
@@ -418,34 +769,11 @@ const contracts = {
       "constant": true,
       "inputs": [
         {
-          "name": "tokenId",
+          "name": "_kittyId",
           "type": "uint256"
         }
       ],
-      "name": "tokenURI",
-      "outputs": [
-        {
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "owner",
-          "type": "address"
-        },
-        {
-          "name": "operator",
-          "type": "address"
-        }
-      ],
-      "name": "isApprovedForAll",
+      "name": "isReadyToBreed",
       "outputs": [
         {
           "name": "",
@@ -454,6 +782,112 @@ const contracts = {
       ],
       "payable": false,
       "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "PROMO_CREATION_LIMIT",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_contractAddress",
+          "type": "address"
+        }
+      ],
+      "name": "setMetadataAddress",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "saleAuction",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_sireId",
+          "type": "uint256"
+        },
+        {
+          "name": "_matronId",
+          "type": "uint256"
+        }
+      ],
+      "name": "bidOnSiringAuction",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "gen0CreatedCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "geneScience",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_matronId",
+          "type": "uint256"
+        },
+        {
+          "name": "_sireId",
+          "type": "uint256"
+        }
+      ],
+      "name": "breedWithAuto",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
       "type": "function"
     },
     {
@@ -463,71 +897,35 @@ const contracts = {
       "type": "constructor"
     },
     {
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
       "anonymous": false,
       "inputs": [
         {
-          "indexed": true,
-          "name": "_itemId",
-          "type": "uint256"
-        },
-        {
-          "indexed": true,
-          "name": "_owner",
+          "indexed": false,
+          "name": "owner",
           "type": "address"
         },
         {
           "indexed": false,
-          "name": "_price",
+          "name": "matronId",
           "type": "uint256"
-        }
-      ],
-      "name": "Bought",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "name": "_itemId",
-          "type": "uint256"
-        },
-        {
-          "indexed": true,
-          "name": "_owner",
-          "type": "address"
         },
         {
           "indexed": false,
-          "name": "_price",
+          "name": "sireId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "cooldownEndBlock",
           "type": "uint256"
         }
       ],
-      "name": "Sold",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "MinterAdded",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "MinterRemoved",
+      "name": "Pregnant",
       "type": "event"
     },
     {
@@ -535,64 +933,16 @@ const contracts = {
       "inputs": [
         {
           "indexed": false,
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "Paused",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "Unpaused",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "PauserAdded",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "name": "account",
-          "type": "address"
-        }
-      ],
-      "name": "PauserRemoved",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
           "name": "from",
           "type": "address"
         },
         {
-          "indexed": true,
+          "indexed": false,
           "name": "to",
           "type": "address"
         },
         {
-          "indexed": true,
+          "indexed": false,
           "name": "tokenId",
           "type": "uint256"
         }
@@ -604,17 +954,17 @@ const contracts = {
       "anonymous": false,
       "inputs": [
         {
-          "indexed": true,
+          "indexed": false,
           "name": "owner",
           "type": "address"
         },
         {
-          "indexed": true,
+          "indexed": false,
           "name": "approved",
           "type": "address"
         },
         {
-          "indexed": true,
+          "indexed": false,
           "name": "tokenId",
           "type": "uint256"
         }
@@ -626,96 +976,119 @@ const contracts = {
       "anonymous": false,
       "inputs": [
         {
-          "indexed": true,
+          "indexed": false,
           "name": "owner",
           "type": "address"
         },
         {
-          "indexed": true,
-          "name": "operator",
-          "type": "address"
+          "indexed": false,
+          "name": "kittyId",
+          "type": "uint256"
         },
         {
           "indexed": false,
-          "name": "approved",
-          "type": "bool"
+          "name": "matronId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "sireId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "genes",
+          "type": "uint256"
         }
       ],
-      "name": "ApprovalForAll",
+      "name": "Birth",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "newContract",
+          "type": "address"
+        }
+      ],
+      "name": "ContractUpgrade",
       "type": "event"
     },
     {
       "constant": false,
       "inputs": [
         {
-          "name": "contractaddr",
+          "name": "_v2Address",
           "type": "address"
-        },
-        {
-          "name": "tokenId",
-          "type": "uint256"
         }
       ],
-      "name": "transferERC721Token",
+      "name": "setNewAddress",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
-      "constant": false,
+      "constant": true,
       "inputs": [
         {
-          "name": "contractaddr",
-          "type": "address"
-        }
-      ],
-      "name": "transferERC20Token",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "name": "tokenId",
-          "type": "uint256"
-        },
-        {
-          "name": "tokenprice",
+          "name": "_id",
           "type": "uint256"
         }
       ],
-      "name": "mint",
+      "name": "getKitty",
       "outputs": [
         {
-          "name": "",
+          "name": "isGestating",
           "type": "bool"
+        },
+        {
+          "name": "isReady",
+          "type": "bool"
+        },
+        {
+          "name": "cooldownIndex",
+          "type": "uint256"
+        },
+        {
+          "name": "nextActionAt",
+          "type": "uint256"
+        },
+        {
+          "name": "siringWithId",
+          "type": "uint256"
+        },
+        {
+          "name": "birthTime",
+          "type": "uint256"
+        },
+        {
+          "name": "matronId",
+          "type": "uint256"
+        },
+        {
+          "name": "sireId",
+          "type": "uint256"
+        },
+        {
+          "name": "generation",
+          "type": "uint256"
+        },
+        {
+          "name": "genes",
+          "type": "uint256"
         }
       ],
       "payable": false,
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "constant": false,
-      "inputs": [
-        {
-          "name": "l",
-          "type": "uint256"
-        },
-        {
-          "name": "r",
-          "type": "uint256"
-        }
-      ],
-      "name": "init",
+      "inputs": [],
+      "name": "unpause",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
@@ -724,360 +1097,10 @@ const contracts = {
     {
       "constant": false,
       "inputs": [],
-      "name": "initGlobal",
+      "name": "withdrawBalance",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "l",
-          "type": "uint256"
-        },
-        {
-          "name": "r",
-          "type": "uint256"
-        }
-      ],
-      "name": "newGlobalPrice",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [],
-      "name": "newGlobalGlobal",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "tokenId",
-          "type": "uint256"
-        }
-      ],
-      "name": "buy",
-      "outputs": [],
-      "payable": true,
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [],
-      "name": "awardPool",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [],
-      "name": "withdrawAll",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "withdrawAmount",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "tokenID",
-          "type": "uint256"
-        }
-      ],
-      "name": "priceOfToken",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "_itemId",
-          "type": "uint256"
-        }
-      ],
-      "name": "allOf",
-      "outputs": [
-        {
-          "name": "_owner",
-          "type": "address"
-        },
-        {
-          "name": "_price",
-          "type": "uint256"
-        },
-        {
-          "name": "_nextPrice",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "getIndexOfGlobal",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "index",
-          "type": "uint256"
-        }
-      ],
-      "name": "getGlobalBegin",
-      "outputs": [
-        {
-          "name": "_begin",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "index",
-          "type": "uint256"
-        }
-      ],
-      "name": "getGlobalEnd",
-      "outputs": [
-        {
-          "name": "_end",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "index",
-          "type": "uint256"
-        }
-      ],
-      "name": "getGlobalLastOne",
-      "outputs": [
-        {
-          "name": "_lastone",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "index",
-          "type": "uint256"
-        }
-      ],
-      "name": "getGlobalPool",
-      "outputs": [
-        {
-          "name": "_pool",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "index",
-          "type": "uint256"
-        }
-      ],
-      "name": "getGlobalDevCut",
-      "outputs": [
-        {
-          "name": "_devCut",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "index",
-          "type": "uint256"
-        }
-      ],
-      "name": "getGlobal",
-      "outputs": [
-        {
-          "name": "_begin",
-          "type": "uint256"
-        },
-        {
-          "name": "_end",
-          "type": "uint256"
-        },
-        {
-          "name": "_lastone",
-          "type": "address"
-        },
-        {
-          "name": "_pool",
-          "type": "uint256"
-        },
-        {
-          "name": "_devCut",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "getNowGlobal",
-      "outputs": [
-        {
-          "name": "_begin",
-          "type": "uint256"
-        },
-        {
-          "name": "_end",
-          "type": "uint256"
-        },
-        {
-          "name": "_lastone",
-          "type": "address"
-        },
-        {
-          "name": "_pool",
-          "type": "uint256"
-        },
-        {
-          "name": "_devCut",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "price",
-          "type": "uint256"
-        }
-      ],
-      "name": "calculateDevCut",
-      "outputs": [
-        {
-          "name": "_devCut",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "_price",
-          "type": "uint256"
-        }
-      ],
-      "name": "calculateNextPrice",
-      "outputs": [
-        {
-          "name": "_nextPrice",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "tokenID",
-          "type": "uint256"
-        }
-      ],
-      "name": "nextPriceOf",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
       "type": "function"
     }
   ],
