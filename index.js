@@ -35,7 +35,7 @@ const tronApi = {
   contract: false,
   setTronWeb (tronWeb) {
     this.tronWeb = tronWeb;
-    this.contract = tronWeb.contract(contracts.abi, '41b16ddba4fc07bca3f6f0228660d8bd8284f8e385')
+    this.contract = tronWeb.contract(contracts.abi, '41640d100aa367deb818525c46fe02e7e13df5d693')
   }
 }
 
@@ -46,7 +46,7 @@ const call = document.querySelector('#call')
 
 send.addEventListener('click', () => {
   send.innerHTML = '发送中....'
-  tronApi.contract.setGeneScienceAddress('41365e2e16871eb1718875cf1d4dff72cf364685e2').send({
+  tronApi.contract.exchange(1,1,"EOS","KBY").send({
     shouldPollResponse: true,
     callValue: 0,
   }).then(res => {
@@ -59,8 +59,8 @@ send.addEventListener('click', () => {
 })
 
 call.addEventListener('click', () => {
-  tronApi.contract.allOf(135).call().then(resp => {
-    console.log(resp, parseInt(resp._hex, 16), 'toNumber')
+  tronApi.contract.owner().call().then(resp => {
+    console.log(resp, 'toNumber')
  //   console.log(resp)
   })
 })
