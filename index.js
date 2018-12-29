@@ -35,9 +35,10 @@ const tronApi = {
   contract: false,
   setTronWeb (tronWeb) {
     this.tronWeb = tronWeb;
-    this.contract = tronWeb.contract(contracts.abi, '41b4f8413520f0a92b279c17fae1df92b1883791dc')
+    this.contract = tronWeb.contract(contracts.abi, '41a260aed6724be27b496cfdcda13b9fc1f8fff766')
   }
 }
+// sale
 
 
 const send = document.querySelector('#send')
@@ -46,9 +47,9 @@ const call = document.querySelector('#call')
 
 send.addEventListener('click', () => {
   send.innerHTML = '发送中....'
-  tronApi.contract.createSaleAuction(11, 0,0,864000).send({
+  tronApi.contract.bid(1).send({
     shouldPollResponse: true,
-    callValue: 0,
+    callValue: 10000000,
   }).then(res => {
     send.innerHTML = '已发送'
     console.log('success', res)
@@ -59,10 +60,115 @@ send.addEventListener('click', () => {
 })
 
 call.addEventListener('click', () => {
-  tronApi.contract.getKitty(1).call().then(resp => {
+  tronApi.contract.owner().call().then(resp => {
     console.log(resp, 'toNumber')
  //   console.log(resp)
   })
 })
 
+call_2.addEventListener('click', () => {
+  tronApi.contract.paused().call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+
+call_3.addEventListener('click', () => {
+  tronApi.contract.getAuction(3).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_4.addEventListener('click', () => {
+  tronApi.contract.getAuction(4).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_5.addEventListener('click', () => {
+  tronApi.contract.getAuction(5).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_6.addEventListener('click', () => {
+  tronApi.contract.getAuction(6).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_7.addEventListener('click', () => {
+  tronApi.contract.getAuction(7).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_8.addEventListener('click', () => {
+  tronApi.contract.getAuction(8).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_9.addEventListener('click', () => {
+  tronApi.contract.getAuction(9).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_10.addEventListener('click', () => {
+  tronApi.contract.getAuction(10).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_11.addEventListener('click', () => {
+  tronApi.contract.getAuction(11).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_12.addEventListener('click', () => {
+  tronApi.contract.getAuction(12).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_13.addEventListener('click', () => {
+  tronApi.contract.getAuction(13).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_14.addEventListener('click', () => {
+  tronApi.contract.getAuction(0).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_15.addEventListener('click', () => {
+  tronApi.contract.getAuction(1).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
+
+call_16.addEventListener('click', () => {
+  tronApi.contract.getAuction(2).call().then(resp => {
+    console.log(resp, 'toNumber')
+ //   console.log(resp)
+  })
+})
 
