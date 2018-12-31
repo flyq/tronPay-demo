@@ -2,13 +2,57 @@ const contracts = {
   "contractName": "Test",
   "abi": [
     {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    },
+    {
       "constant": true,
       "inputs": [],
-      "name": "owner",
+      "name": "totalSupply",
       "outputs": [
         {
           "name": "",
-          "type": "address"
+          "type": "uint256"
         }
       ],
       "payable": false,
@@ -16,57 +60,66 @@ const contracts = {
       "type": "function"
     },
     {
-      "inputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
-      "anonymous": false,
+      "constant": true,
       "inputs": [
         {
-          "indexed": false,
-          "name": "askamount",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "name": "bidamount",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "name": "ask",
-          "type": "string"
-        },
-        {
-          "indexed": false,
-          "name": "bid",
-          "type": "string"
-        },
-        {
-          "indexed": false,
-          "name": "account",
+          "name": "owner",
           "type": "address"
         }
       ],
-      "name": "ExchangeToken",
-      "type": "event"
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "name": "spender",
+          "type": "address"
+        }
+      ],
+      "name": "allowance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     },
     {
       "constant": false,
       "inputs": [
         {
-          "name": "contractAddr",
+          "name": "to",
           "type": "address"
         },
         {
-          "name": "tokenId",
+          "name": "value",
           "type": "uint256"
         }
       ],
-      "name": "transferERC721Token",
-      "outputs": [],
+      "name": "transfer",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
@@ -75,16 +128,21 @@ const contracts = {
       "constant": false,
       "inputs": [
         {
-          "name": "contractAddr",
+          "name": "spender",
           "type": "address"
         },
         {
-          "name": "amount",
+          "name": "value",
           "type": "uint256"
         }
       ],
-      "name": "transferERC20Token",
-      "outputs": [],
+      "name": "approve",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
@@ -93,12 +151,25 @@ const contracts = {
       "constant": false,
       "inputs": [
         {
-          "name": "amount",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "name": "value",
           "type": "uint256"
         }
       ],
-      "name": "transferTRX",
-      "outputs": [],
+      "name": "transferFrom",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
@@ -107,24 +178,44 @@ const contracts = {
       "constant": false,
       "inputs": [
         {
-          "name": "askamount",
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "name": "addedValue",
           "type": "uint256"
-        },
-        {
-          "name": "bidamount",
-          "type": "uint256"
-        },
-        {
-          "name": "ask",
-          "type": "string"
-        },
-        {
-          "name": "bid",
-          "type": "string"
         }
       ],
-      "name": "exchange",
-      "outputs": [],
+      "name": "increaseAllowance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "name": "subtractedValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "decreaseAllowance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
