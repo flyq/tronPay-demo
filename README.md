@@ -70,7 +70,7 @@ token合约的abi在这里：https://github.com/flyq/tron_trc20_abi/blob/master/
    "abi": [
    ],
 ```
-1. 更改`index.js`里面要调用的函数
+3. 更改`index.js`里面要调用的函数
 ```javascript
 tronApi.contract.transfer('4110B740908FC6D1E08B0A550463677E4E8F52EF2F',100000).send({
 ```
