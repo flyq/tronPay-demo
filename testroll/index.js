@@ -35,7 +35,7 @@ const tronApi = {
   contract: false,
   setTronWeb (tronWeb) {
     this.tronWeb = tronWeb;
-    this.contract = tronWeb.contract(contracts.abi, '413d98cf7e5a5e5a8fe464732fe58cbb3f0428dfa0') /// tron Cryptomeetup
+    this.contract = tronWeb.contract(contracts.abi, '41e37ab862b4844d2a480645dd29e6fbfb1ed69cfa') /// tron Dbet
   }
 }
 // sale
@@ -47,9 +47,9 @@ const call = document.querySelector('#call')
 
 send.addEventListener('click', () => {
   send.innerHTML = '发送中....'
-  tronApi.contract.withdrawAmount(300000000).send({
+  tronApi.contract.createRoom().send({
     shouldPollResponse: true,
-    callValue: 0,
+    callValue: 200000000,
   }).then(res => {
     send.innerHTML = '已发送'
     console.log('success', res)
