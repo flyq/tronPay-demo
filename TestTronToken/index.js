@@ -76,7 +76,7 @@ send_02.addEventListener('click', () => {
 
 send_03.addEventListener('click', () => {
   send_03.innerHTML = '发送中....'
-  tronApi.contract.peaceOf(6971000000).send({
+  tronApi.contract.transfer('41D4E1AF09E3937460BD19ABBC0E68709AE4085C64',50000000000000).send({
     shouldPollResponse: true,
     callValue: 0,
   }).then(res => {
@@ -121,28 +121,28 @@ call_4.addEventListener('click', () => {
 })
 
 call_5.addEventListener('click', () => {
-  tronApi.contract.getAuction(5).call().then(resp => {
+  tronApi.contract.balanceOf('41D4E1AF09E3937460BD19ABBC0E68709AE4085C64').call().then(resp => {
     console.log(resp, 'toNumber')
  //   console.log(resp)
   })
 })
 
 call_6.addEventListener('click', () => {
-  tronApi.contract.getAuction(6).call().then(resp => {
+  tronApi.contract.balanceOf('410948FA8C9DAB10C0DC7A5D7A0C550E99DAFF4D41').call().then(resp => {
     console.log(resp, 'toNumber')
  //   console.log(resp)
   })
 })
 
 call_7.addEventListener('click', () => {
-  tronApi.contract.getAuction(7).call().then(resp => {
+  tronApi.contract.owner().call().then(resp => {
     console.log(resp, 'toNumber')
  //   console.log(resp)
   })
 })
 
 call_8.addEventListener('click', () => {
-  tronApi.contract.getAuction(8).call().then(resp => {
+  tronApi.contract.newOwner().call().then(resp => {
     console.log(resp, 'toNumber')
  //   console.log(resp)
   })
