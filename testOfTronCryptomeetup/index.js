@@ -47,7 +47,7 @@ const call = document.querySelector('#call')
 
 send.addEventListener('click', () => {
   send.innerHTML = '发送中....'
-  tronApi.contract.withdrawAmount(300000000).send({
+  tronApi.contract.withdrawAmount(1064000000).send({
     shouldPollResponse: true,
     callValue: 0,
   }).then(res => {
