@@ -35,7 +35,7 @@ const tronApi = {
   contract: false,
   setTronWeb (tronWeb) {
     this.tronWeb = tronWeb;
-    this.contract = tronWeb.contract(contracts.abi, '41C44384B89791446CA9582D017129B74168B7C132') /// tron test token
+    this.contract = tronWeb.contract(contracts.abi, '412CA9153786EC124DE123FA89A955919A5448028B') /// tron  token
   }
 }
 // sale
@@ -47,7 +47,7 @@ const call = document.querySelector('#call')
 
 send_01.addEventListener('click', () => {
   send_01.innerHTML = '发送中....'
-  tronApi.contract.transferOwnership('41D4E1AF09E3937460BD19ABBC0E68709AE4085C64').send({
+  tronApi.contract.transferOwnership('41D1D1E1C7759D9A503308393A8861D582F3D54101').send({
     shouldPollResponse: true,
     callValue: 0,
   }).then(res => {
@@ -62,7 +62,7 @@ send_01.addEventListener('click', () => {
 
 send_02.addEventListener('click', () => {
   send_02.innerHTML = '发送中....'
-  tronApi.contract.addAdmin('41D4E1AF09E3937460BD19ABBC0E68709AE4085C64').send({
+  tronApi.contract.addAdmin('41D1D1E1C7759D9A503308393A8861D582F3D54101').send({
     shouldPollResponse: true,
     callValue: 0,
   }).then(res => {
@@ -76,7 +76,7 @@ send_02.addEventListener('click', () => {
 
 send_03.addEventListener('click', () => {
   send_03.innerHTML = '发送中....'
-  tronApi.contract.transfer('41D4E1AF09E3937460BD19ABBC0E68709AE4085C64',50000000000000).send({
+  tronApi.contract.transfer('41D1D1E1C7759D9A503308393A8861D582F3D54101',100000000000000).send({
     shouldPollResponse: true,
     callValue: 0,
   }).then(res => {
@@ -92,7 +92,7 @@ send_03.addEventListener('click', () => {
 
 
 call.addEventListener('click', () => {
-  tronApi.contract.paused().call().then(resp => {
+  tronApi.contract.balanceOf('411A6382A0B327F72AF2F0458030FC05834A58B319').call().then(resp => {
     console.log(resp, 'toNumber')
  //   console.log(resp)
   })
@@ -107,21 +107,21 @@ call_2.addEventListener('click', () => {
 
 
 call_3.addEventListener('click', () => {
-  tronApi.contract.admins('410948FA8C9DAB10C0DC7A5D7A0C550E99DAFF4D41').call().then(resp => {
+  tronApi.contract.admins('411A6382A0B327F72AF2F0458030FC05834A58B319').call().then(resp => {
     console.log(resp, 'toNumber')
  //   console.log(resp)
   })
 })
 
 call_4.addEventListener('click', () => {
-  tronApi.contract.admins('41D4E1AF09E3937460BD19ABBC0E68709AE4085C64').call().then(resp => {
+  tronApi.contract.admins('41D1D1E1C7759D9A503308393A8861D582F3D54101').call().then(resp => {
     console.log(resp, 'toNumber')
  //   console.log(resp)
   })
 })
 
 call_5.addEventListener('click', () => {
-  tronApi.contract.balanceOf('41D4E1AF09E3937460BD19ABBC0E68709AE4085C64').call().then(resp => {
+  tronApi.contract.balanceOf('41D1D1E1C7759D9A503308393A8861D582F3D54101').call().then(resp => {
     console.log(resp, 'toNumber')
  //   console.log(resp)
   })
